@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading…</title>
+
+<script>
+function redirectDevice(){
+
+  const isMobile = window.innerWidth <= 768;
+
+  if(isMobile){
+    // Mobile → GitHub mobile page
+    window.location.replace("https://afresh2193.github.io/googlesite/");
+  } else {
+    // Desktop → Google Site
+    window.location.replace("https://sites.google.com/view/wholebear");
+  }
+
+}
+
+redirectDevice();
+</script>
+
+<style>
+body{
+  margin:0;
+  background:#111;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  font-family:sans-serif;
+}
+</style>
+</head>
+<body>
+Redirecting…
+</body>
+</html>
