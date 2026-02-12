@@ -8,7 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@400;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-html, body { margin:0; padding:0; font-family:sans-serif; background:transparent; color:#eaeaea; }
+html, body { 
+  margin:0; 
+  padding:0; 
+  font-family:sans-serif; 
+  background:#f9f5ec; /* soft creme background */
+  color:#333; 
+}
 
 /* ===== TOP RIBBON ===== */
 #top-ribbon {
@@ -20,6 +26,10 @@ html, body { margin:0; padding:0; font-family:sans-serif; background:transparent
   justify-content: flex-end;
   padding: 0 14px;
   box-sizing: border-box;
+  position: sticky; /* STICKY */
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .ribbon-btn {
@@ -43,9 +53,9 @@ html, body { margin:0; padding:0; font-family:sans-serif; background:transparent
   display:flex;
   justify-content:flex-start;
   align-items:center;
-  padding:10px 0; /* no side padding */
+  padding:10px 0;
 }
-.header .title { font-family:'Playwrite NZ Basic', cursive; font-size:22px; color:white; }
+.header .title { font-family:'Playwrite NZ Basic', cursive; font-size:22px; color:#1a1a1a; }
 
 /* CARDS */
 #cardsView { overflow-x:hidden; padding:0; margin:0; }
@@ -63,6 +73,7 @@ html, body { margin:0; padding:0; font-family:sans-serif; background:transparent
   background-position:center;
   border-radius:0 8px 8px 0;
   will-change: transform;
+  cursor:pointer;
 }
 
 /* MOBILE */
