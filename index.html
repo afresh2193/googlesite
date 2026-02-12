@@ -3,25 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trips Toggle View</title>
+<title>Trips Cards View</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@400;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 html, body { margin:0; padding:0; font-family:sans-serif; background:transparent; color:#eaeaea; }
 
+/* ===== TOP RIBBON ===== */
+#top-ribbon {
+  width: 100%;
+  height: 42px;
+  background: #303030;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+
+.ribbon-btn {
+  font-family: "Playwrite NZ Basic", cursive;
+  font-size: 14px;
+  color: #f5f2e9;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid #f5f2e9;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.ribbon-btn:hover {
+  background: #f5f2e9;
+  color: #303030;
+}
+
 /* Header */
 .header {
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-start;
   align-items:center;
-  padding:10px 20px;
+  padding:10px 0; /* no side padding */
 }
 .header .title { font-family:'Playwrite NZ Basic', cursive; font-size:22px; color:white; }
-button.toggle-view { padding:8px 16px; font-size:14px; border-radius:6px; border:none; background:#1a1a1a; color:white; cursor:pointer; }
 
 /* CARDS */
-#cardsView { overflow-x:hidden; padding:10px 20px; }
+#cardsView { overflow-x:hidden; padding:0; margin:0; }
 .entry { display:flex; flex-direction:row; width:100%; height:50vw; max-height:500px; margin-bottom:20px; }
 .entry-sidebar { width:25%; display:flex; flex-direction:column; background:rgba(0,0,0,0.6); }
 .entry-sidebar .top-half { flex:1; padding:15px; color:white; font-family:'Nunito', sans-serif; }
@@ -65,13 +92,20 @@ button.toggle-view { padding:8px 16px; font-size:14px; border-radius:6px; border
 </head>
 <body>
 
+<!-- TOP RIBBON -->
+<div id="top-ribbon">
+  <a class="ribbon-btn" href="https://wholebear0.github.io/trips/map.html">
+    Map
+  </a>
+</div>
+
+<!-- HEADER -->
 <div class="header">
   <div class="title">Most Recent Adventures</div>
-  <button class="toggle-view">Switch to List View</button>
 </div>
 
 <div id="cardsView"></div>
-<div id="listView" style="display:none; padding:10px 20px;"></div>
+<div id="listView" style="display:none; padding:0;"></div>
 
 <script>
 let allItems=[];
@@ -174,19 +208,6 @@ function lazyLoadBackgrounds(){
 
   images.forEach(img=>observer.observe(img));
 }
-
-/* TOGGLE */
-document.querySelector('.toggle-view').onclick=()=>{
-  const cards=document.getElementById('cardsView');
-  const list=document.getElementById('listView');
-  if(cards.style.display!=='none'){
-    cards.style.display='none';
-    list.style.display='block';
-  }else{
-    cards.style.display='block';
-    list.style.display='none';
-  }
-};
 
 window.addEventListener('resize',renderCards);
 
